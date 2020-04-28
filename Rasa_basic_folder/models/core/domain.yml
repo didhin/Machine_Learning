@@ -1,0 +1,61 @@
+actions:
+- action_search_restaurants
+- utter_ask_cuisine
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_default
+- utter_goodbye
+- utter_greet
+config:
+  store_entities_as_slots: true
+entities:
+- cuisine
+- location
+forms: []
+intents:
+- greet:
+    ignore_entities: []
+    use_entities: true
+- affirm:
+    ignore_entities: []
+    use_entities: true
+- goodbye:
+    ignore_entities: []
+    use_entities: true
+- restaurant_search:
+    ignore_entities: []
+    use_entities: true
+slots:
+  cuisine:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+  location:
+    auto_fill: true
+    initial_value: null
+    type: rasa.core.slots.TextSlot
+templates:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    text: what kind of cuisine would you like?
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_default:
+  - text: i cannot understand
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
